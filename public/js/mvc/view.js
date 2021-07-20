@@ -18,21 +18,21 @@ export default class View {
     renderUserWeather = (city) => {
       this.userWeather.innerHTML = `
       <div class="card-header">
-        <span class="card-name">${city.name}</span>
+        <span class="card-name">${city.name}, ${city.sys.country}</span>
       </div>
       <div class="card-holder">
         <div class="card-info">
-          <span class="">${Math.round(city.main.temp)}&deg;</span>
-          <span class=""></span>
-          <span class=""></span>
-          <span class=""></span>
-          <span class=""></span>
+          <span class="temp">temp: ${Math.round(city.main.temp)}&deg;</span>
+          <span class="pressure">pressure: ${Math.round(city.main.pressure)} mb</span>
+          <span class="humidity">humidity: ${city.main.humidity} %</span>
+          <span class="wind">wind: ${city.wind.speed} m/s</span>
         </div>
         <div class="card-img">
+          <span class="">${city.weather[0].description}</span>
           <img src="http://openweathermap.org/img/w/${city.weather[0].icon}.png">
         </div>
       </div>
-      `
+      `;
     }
   
     renderWeather = (weatherData) => {
@@ -44,7 +44,7 @@ export default class View {
         li.setAttribute("data-id", city.id);
         li.innerHTML = `
         <div class="card-header">
-          <span class="card-name">${city.name}</span>
+          <span class="card-name">${city.name}, ${city.sys.country}</span>
           <input class="card-input" type="text">
           <div class="card-buttons">
               <button class="edit-button">Edit</button>
@@ -53,13 +53,15 @@ export default class View {
         </div>
         <div class="card-holder">
           <div class="card-info">
-            <span class="">${Math.round(city.main.temp)}&deg;</span>
-            <span class=""></span>
-            <span class=""></span>
-            <span class=""></span>
-            <span class=""></span>
+            <span class="temp">temp: ${Math.round(city.main.temp)}&deg;</span>
+            <span class="pressure">pressure: ${Math.round(city.main.pressure)} mb</span>
+            <span class="humidity">humidity: ${city.main.humidity} %</span>
+            <span class="wind">wind: ${city.wind.speed} m/s</span>
           </div>
-          <div class="card-img"></div>
+          <div class="card-img">
+            <span class="">${city.weather[0].description}</span>
+            <img src="http://openweathermap.org/img/w/${city.weather[0].icon}.png">
+          </div>
         </div>
         `;
         
