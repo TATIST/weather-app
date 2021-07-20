@@ -30,24 +30,20 @@ export default class Model {
           throw cityData.message;
         }
 
-        // const isIdExists = this.weatherData.some(city => city.id = cityData.id);
+        const isCityExists = this.weatherData.find(city => city.id === cityData.id);
 
-        // if (isIdExists) {
-        //   return console.log('This city is already exists.')
-        // };
+        if (isCityExists) {
+          return console.log('This city is already exists.')
+        };
   
         if ( id === null) {
           this.weatherData.unshift(cityData);
         } else {
-          const index = 0;
-  
-          this.weatherData.find((city, idx) => {
-            if (city.id === id) {
-              index = idx;
+          this.weatherData.forEach((city, idx) => {
+            if (city.id === Number(id)) {
+              this.weatherData[idx] = cityData;
             }
           });
-  
-          this.weatherData[index] = cityData;
         };
         
         localStorage.setItem("weatherData", JSON.stringify(this.weatherData));
