@@ -1,17 +1,16 @@
 body {
-    display: flex;
-    padding: 100px 70px;
-    justify-content: center;
-    overflow: hidden;
-    background-image: url(../img/ab389484a3ed5ff45269a80526b16a65f5593874.jpg);
+    max-width: 670px;
+    margin: 15px auto;
+    background-image: url(../img/bg.jpg);
     background-size: cover;
+    background-attachment: fixed;
     font-family: sans-serif;
     font-size: 15px;
 }
 
 h1 {
     font-weight: 800;
-    color: #a5d0d6;
+    color: white;
     text-align: center;
     font-size: 30px;
     margin-bottom: 10px;
@@ -27,13 +26,13 @@ button {
     width: 150px;
     margin: 0 auto 25px;
     padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #88acb1;
+    border-radius: 15px;
+    border: 1px solid white;
 }
 
 select:focus,
 input:focus {
-    border-color: #22c1c3;
+    border-color: #1dbe80;
 }
 
 select:focus-visible,
@@ -46,20 +45,31 @@ select:hover {
 }
 
 input {
-    width: 210px;
     min-width: 150px;
+    margin-right: 5px;
+    padding-left: 13px;
     height: 23px;
+    display: flex;
+    flex: 1;
+}
+
+ul {
+    list-style: none;
+    padding-left: inherit;
 }
 
 button {
     border: none;
     color: white;
     font-weight: 800;
-    background-color: #22c1c3;
+    border: 1px solid #1dbe80;
+    background-color: #1dbe80;
+    letter-spacing: 0.9px;
 }
 
 button:hover {
-    background-color: #168f91;
+    border: 1px solid #0b915d;
+    background-color: #0b915d;
     cursor: pointer;
 }
 
@@ -67,14 +77,16 @@ button:hover {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-bottom: 30px;
+    justify-content: center;
+    padding-bottom: 10px;
+}
 
+.widget-holder {
+    margin: 0 10px;
 }
 
 .title {
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
 }
 
@@ -92,36 +104,75 @@ button:hover {
     left: 78px;
     width: 1px;
     height: 23px;
-    background-color: #a5d0d6;
+    background-color: white;
 }
 
 #widget {
-    width: 750px;
-    padding: 30px;
-    border-radius: 25px;
-    background-color: #fff;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 10px 10px;
     display: flex;
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0 105px 105px;
+    -webkit-box-shadow: 4px 10px 13px -5px rgba(22, 33, 41, 0.35);
+    -moz-box-shadow: 4px 10px 13px -5px rgba(22, 33, 41, 0.35);
+    box-shadow: 4px 10px 13px -5px rgba(22, 33, 41, 0.35);
+}
+
+@media screen and (max-width: 768px) {
+    #widget {
+        background: unset;
+    }
+}
+
+#card-list {
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.user-weather,
+.card {
+    margin-bottom: 45px;
+    padding: 25px;
+    color: black;
+    background: white;
+    border-radius: 0 50px 50px;
+}
+
+@media screen and (min-width: 768px) {
+    .user-weather,
+    .card {
+        padding: 55px;
+    }
 }
 
 .widget-inputs-wrapper {
-    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.search-city-info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10px 4px;
+}
+
 .cards-list-wrapper {
-    position: relative;
+    width: 100%;
 }
 
 .cards-list-wrapper .spinner {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -135,6 +186,77 @@ button:hover {
 .cards-list-wrapper.loading .spinner {
     visibility: visible;
     opacity: 0.9;
+}
+
+.card {
+    color: white;
+    background: #206750b5;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+    .card-header {
+        flex-direction: row;
+    }
+}
+
+.card-name {
+    font-size: 20px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .card-name {
+        font-size: 25px;
+    }
+}
+
+.card-holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    
+    margin-right: 10px;
+}
+
+.card-info span {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.card-info .temp {
+    font-size: 25px;
+}
+
+.card-img {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    align-items: center;
+}
+
+.card-img .weather-description {
+    display: block;
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: 100;
+    text-transform: capitalize;
+}
+
+.card-img img {
+    width: 80px;
+    height: 80px;
 }
 
 #card-info {
@@ -159,36 +281,27 @@ button:hover {
     display: none;
 }
 
+@media screen and (min-width: 768px) {
+    .card-buttons {
+        display: flex;
+    }
 
-
-/* 
-#card-info table {
-    width: 100%;
-    table-layout: fixed;
 }
 
-#card-info th {
-    font-size: 15px;
-    line-height: 30px;
-    font-weight: 200;
-    color: gray;
-    text-align: left;
+.edit-button {
+    width: 60px;
+    border: 1px solid #1dbe80;
+    background-color: #1dbe80;
 }
 
-#card-info th:first-child {
-    width: 60%;
+.remove-button {
+    width: 80px;
+    margin-left: 10px;
+    color: #1dbe80;
+    border: 2px solid #1dbe80;
+    background-color: transparent;
 }
 
-.concerning {
-    opacity: 0.4;
+.remove-button:hover {
+    color: white;
 }
-
-.currency-buy {
-    color: #4db944;
-    font-weight: 600;
-}
-
-.currency-sale {
-    color: #f44336;
-    font-weight: 600;
-} */

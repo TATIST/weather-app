@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <title>SKY | Weather widget</title>
     <link rel="stylesheet" href="css/main.css" />
 </head>
@@ -16,17 +17,19 @@
                 <h1>SKY <span>Weather widget</span></h1>
             </div>
         </div>
-        <div class="user-weather card"></div>
-        <div class="widget-inputs-wrapper">
-            <div class="search-city-info">
-                <input id="enter-city" type="text" placeholder="Search Location">
-                <button id="add">Add</button>
-            </div>
-            <div class="cards-list-wrapper">
-                <div class="spinner fa-2x">
-                    <i class="fas fa-spinner fa-pulse"></i>
+        <div class="widget-holder">
+            <div class="user-weather"></div>
+            <div class="widget-inputs-wrapper">
+                <div class="search-city-info">
+                    <input id="enter-city" type="text" placeholder="Search Location">
+                    <button id="add">Add</button>
                 </div>
-                <ul id="cards-list"></ul>
+                <div class="cards-list-wrapper">
+                    <div class="spinner fa-2x">
+                        <i class="fas fa-spinner fa-pulse"></i>
+                    </div>
+                    <ul id="cards-list"></ul>
+                </div>
             </div>
         </div>
     </div>
